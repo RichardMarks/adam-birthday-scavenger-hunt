@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap");
+
+/* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+* {
+  font-family: "Trade Winds", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("paper.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+input {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+button {
+  margin-top: 1rem;
+  min-width: 300px;
+  height: 48px;
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  text-shadow: 0 0 4px fuchsia;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+h1,
+h2,
+p {
+  text-align: center;
+  max-width: 700px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  color: gold;
+  text-shadow: 0 0 4px black;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+
+input:focus {
+  outline: none;
+}
+
+input::selection {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  text-shadow: 0 0 4px black;
+}
+
+article {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  color: rgba(19, 17, 15, 0.795);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3rem;
+}
+p {
+  font-size: 2rem;
+}
+
+input {
+  font-size: 3rem;
+}
+
+button {
+  font-size: 3rem;
+}
+
+.show {
+  display: block;
+}
+
+#result-modal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+  padding: 0;
+}
+
+#result-modal .close-modal {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  font-size: 64px;
+  display: flex;
+  width: 72px;
+  height: 72px;
+  color: black;
+  text-shadow: 0 0 4px black;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+#result-modal .close-modal:hover {
+  transform: scale(1.05);
+  color: gold;
+}
+
+#result-modal .modal-content {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 920px;
+  height: 480px;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 4px solid black;
+
+  box-shadow: -4px 4px 8px black;
+}
+
+.paper {
+  background-image: url("paper.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fairy {
+  background-image: url("fairy.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.fairy #clue-text {
+  color: white;
+  text-shadow: 0 0 4px rgba(228, 157, 237, 0.795);
+}
+
+#result-modal .fairy .close-modal {
+  color: white;
+}
+
+.mimic {
+  background-color: black;
+  background-image: url("mimic.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mimic #clue-text {
+  margin-top: 96px;
+  color: crimson;
+  text-shadow: 0 0 4px black;
+}
+
+#result-modal .mimic .close-modal {
+  color: white;
+}

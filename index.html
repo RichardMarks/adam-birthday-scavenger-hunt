@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome Adventurer</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <article id="enter-name">
+      <div>
+        <div>
+          <h1>Hello Adventurer, Let's play a game.</h1>
+          <h2>Pass Through the Portal once entered thy name.</h2>
+        </div>
+        <div>
+          <section>
+            <div>
+              <input
+                type="text"
+                id="name-input"
+                maxlength="40"
+                placeholder="Who Are Ye?"
+              />
+            </div>
+            <button id="submit-button">Pass Through The Portal</button>
+          </section>
+        </div>
+      </div>
+    </article>
+    <article id="enter-code">
+      <div>
+        <header>
+          <h2>Enter thy Code, <span id="name-text"></span></h2>
+          <p>
+            Type in the 6 character code you found to receive a clue to the
+            next.
+          </p>
+        </header>
+        <section>
+          <div>
+            <input
+              type="text"
+              id="code-input"
+              maxlength="6"
+              placeholder="??????"
+            />
+          </div>
+        </section>
+      </div>
+    </article>
+    <article id="result-modal">
+      <div class="modal-content paper">
+        <div class="close-modal">&times;</div>
+        <p>
+          <em id="clue-text"
+            >Clue will be displayed here when a valid code is entered.</em
+          >
+        </p>
+      </div>
+    </article>
+  </body>
+</html>
