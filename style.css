@@ -203,3 +203,46 @@ button {
 #result-modal .mimic .close-modal {
   color: white;
 }
+
+#lv-text {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  font-size: 2rem;
+
+  color: white;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+#xp-text {
+  position: absolute;
+  left: 16px;
+  top: calc(16px + 2rem);
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+#xp-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 800px;
+  margin-left: 16px;
+}
+
+#xp-bar > i {
+  width: calc(800px / 15);
+  height: 24px;
+  background-color: goldenrod;
+  border-radius: 2px;
+  margin: 4px;
+  box-shadow: 0 0 4px black;
+}
+
+#xp-bar > i.empty {
+  background-color: rgba(0, 0, 0, 0.3);
+}

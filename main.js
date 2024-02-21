@@ -30,16 +30,6 @@ const clues = {
     "Where tasks are typed and ideas flow, atop a familiar device, your next clue may glow.",
   RKGQTF:
     "In a lofty perch where dreams take flight, your treasure awaits, hidden from sight.",
-  KSBYTC:
-    "Where echoes linger and whispers fade, seek where the light casts a mysterious shade.",
-  ZQOPXI:
-    "In a place where pathways cross, look where the silence echoes soft.",
-  DPNVCZ:
-    "Where time stands still and memories play, find where the warmth of yesterday stays.",
-  VQBYKD:
-    "In a space where dreams take flight, seek where shadows dance in the night.",
-  XNBFMW:
-    "Where laughter rings and joy abounds, search where the rhythm of life resounds.",
 };
 
 function isCodeValid(code) {
@@ -54,6 +44,8 @@ function boot() {
   const state = {
     status: "enter-name",
     name: "Adventurer",
+    xp: 0,
+    found: Object.keys(clues).map((k) => ({ [k]: false })),
   };
   const UI = {
     enterName: document.getElementById("enter-name"),
@@ -66,10 +58,49 @@ function boot() {
     resultModal: document.getElementById("result-modal"),
     closeModal: document.querySelector(".close-modal"),
     modalContent: document.querySelector(".modal-content"),
+    xpBar: document.getElementById("xp-bar"),
+    lvText: document.getElementById("lv-text"),
+    complete: document.getElementById("complete"),
   };
 
   UI.enterCode.style.display = "none";
   UI.enterName.style.display = "block";
+  UI.complete.style.display = "none";
+
+  function updateXp() {
+    while (UI.xpBar.firstChild) {
+      UI.xpBar.removeChild(UI.xpBar.firstChild);
+    }
+    for (let i = 1; i <= 15; i++) {
+      const node = document.createElement("i");
+      if (i > state.xp) {
+        node.classList.add("empty");
+      }
+      UI.xpBar.appendChild(node);
+    }
+  }
+
+  updateXp();
+
+  const gainXp = () => {
+    state.xp += 1;
+    updateXp();
+
+    if (state.xp >= 15) {
+      state.xp = 15;
+      UI.lvText.innerText = "Level 11";
+
+      UI.enterCode.style.display = "none";
+
+      setTimeout(() => {
+        UI.enterCode.style.display = "none";
+        UI.enterName.style.display = "none";
+        UI.complete.style.display = "block";
+      }, 1000);
+    }
+  };
+
+  window.gainXp = gainXp;
 
   function showModal() {
     UI.resultModal.style.display = "block";
@@ -94,6 +125,11 @@ function boot() {
       UI.modalContent.classList.remove("fairy");
       UI.modalContent.classList.remove("mimic");
       showModal();
+      if (!state.found[code]) {
+        state.found[code] = true;
+        console.log("gained experience");
+        gainXp();
+      }
     } else {
       if (Math.random() > 0.5) {
         UI.clueText.innerText =
